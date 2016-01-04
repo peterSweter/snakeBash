@@ -1,8 +1,6 @@
 function render 
 {
-	clear
 	echo >screen #faster PC MASTER RACE - ONLY 144 FPS, and no flickering
-	echo $RANDOM
 	tmpChar=' '
 	for ((i=0; i<height; i++)) do
 		for ((j=0; j<width; j++)) do
@@ -15,5 +13,6 @@ function render
 		done
 		echo "" >>screen
 	done
+	clear
 	cat screen
 }
