@@ -1,3 +1,4 @@
+#!/bin/bash
 source ./header.sh
 source ./input.sh
 source ./update.sh

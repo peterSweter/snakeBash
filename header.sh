@@ -1,4 +1,5 @@
 stty -echo
+tput civis
 
 game_state=0
 
@@ -31,5 +32,7 @@ function init
 function finish
 {
 	stty echo
+	tput cnorm
+	tput sgr0
 }
 trap finish EXIT
