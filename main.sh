@@ -11,3 +11,4 @@ while [ $game_state -eq 1 ] ; do
 	render
 	hold
 done
+

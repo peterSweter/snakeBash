@@ -1,7 +1,4 @@
-# uncoment in production
-if [ $1 == "production" ] ; then
-	stty -echo
-fi
+stty -echo
 
 game_state=0
 
@@ -31,3 +28,8 @@ function init
 	snake_head_x=$(($width/2))
 	snake_head_y=$(($height/2))
 }
+function finish
+{
+	stty echo
+}
+trap finish EXIT
