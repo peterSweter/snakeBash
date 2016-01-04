@@ -1,2 +1,0 @@
-NAKIELNY
-byl tutaj
