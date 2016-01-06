@@ -1,8 +1,5 @@
 function update
 {
-
-
-
 	case "$pressed_key" in
 	a) ((move=3)) ;;
 	d) ((move=4)) ;;

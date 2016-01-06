@@ -4,8 +4,8 @@ tput civis
 game_state=0
 
 declare -A matrix
-height=15
-width=30
+height=25
+width=60
 
 snake_head_x=1;
 snake_head_y=1;
