@@ -15,6 +15,9 @@ function checkSnakeCollision
       game_over;
     fi
   done
+  if [ $game_state -ne 1 ] ; then
+  	return
+  fi
 
 
   if [ $apple_x -eq $snake_head_x ] && [ $apple_y -eq $snake_head_y ] ; then

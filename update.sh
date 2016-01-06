@@ -1,10 +1,10 @@
 function update
 {
 	case "$pressed_key" in
-	a) ((move=3)) ;;
-	d) ((move=4)) ;;
-	w) ((move=1)) ;;
-	s) ((move=2)) ;;
+	w) [ $move -ne 2 ] && ((move=1)) ;;
+	s) [ $move -ne 2 ] && ((move=2)) ;;
+	a) [ $move -ne 4 ] && ((move=3)) ;;
+	d) [ $move -ne 3 ] && ((move=4)) ;;
 	q) game_state=0 ;;
 	e) ((move=0)) ;;
 	esac
