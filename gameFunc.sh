@@ -9,10 +9,16 @@ function checkSnakeCollision
   if [ $snake_head_x -eq $(($width-1)) ] || [ $snake_head_x -eq 0 ] || [ $snake_head_y -eq 0 ] || [ $snake_head_y -eq $(($height-1)) ] ; then
     game_over;
   fi
+  
+  if [ $game_state -ne 1 ] ; then
+  	return
+  fi
+
 
   for ((i=$snake_size;$i>0;i--)) ; do
     if [ $((Segment_position_x[$i])) -eq $snake_head_x ] && [ $((Segment_position_y[$i])) -eq $snake_head_y ] ; then
       game_over;
+	  break
     fi
   done
   if [ $game_state -ne 1 ] ; then
@@ -86,6 +92,9 @@ function game_over
 	echo -e "  Play again? (Y/n)\n"
 	finish
 	again=0
+	
+	take_input # just to flush accidental input
+	
 	read -n 1 again 
 	
 	if [ $again == "y" ] || [ $again == "Y" ] ; then
