@@ -1,11 +1,15 @@
-stty -echo
-tput civis
+function disable_cursor
+{
+	stty -echo
+	tput civis
+}
+disable_cursor
 
 game_state=0
 
 declare -A matrix
-height=25
-width=60
+height=20
+width=25
 
 snake_head_x=1;
 snake_head_y=1;
@@ -30,6 +34,7 @@ function init
 	snake_size=0;
 	snake_head_x=1;
 	snake_head_y=1;
+	move=0
 
 	for ((i=0; i<height; i++)) do
 		for ((j=0; j<width; j++)) do

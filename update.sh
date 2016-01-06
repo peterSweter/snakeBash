@@ -19,6 +19,10 @@ function update
 	esac
 
 	checkSnakeCollision;
+	if [ $game_state -ne 1 ] ; then
+		return
+	fi
+	
 
 
 	for ((i=1; i+1<height; i++)) do
@@ -29,4 +33,5 @@ function update
 
 	matrix[$apple_y,$apple_x]=4;
 	drawSnake;
+	
 }

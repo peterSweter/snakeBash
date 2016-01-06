@@ -11,6 +11,11 @@ init
 while [ $game_state -eq 1 ] ; do
 	take_input
 	update
-	render
+	if [ $game_state -eq 1 ] ; then
+		render
+	fi
 	hold
+	if [ $game_state -eq 2 ] ; then
+		init
+	fi
 done
