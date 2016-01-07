@@ -3,9 +3,9 @@ Adrian & Piotrek
 square game - klon popularnej gry snake.
 
 Założenia minimalne:
-* obsługa wejścia
-* renderowanie planszy
-* poruszanie się węża
+- obsługa wejścia
+- renderowanie planszy
+- poruszanie się węża
 - wykrywanie kolizji
 - powiększanie się węża
 - ekran końca gry
