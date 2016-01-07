@@ -4,7 +4,9 @@ square game - klon popularnej gry snake.
 
 Założenia minimalne:
 - obsługa wejścia
+
 - renderowanie planszy
+
 - poruszanie się węża
 - wykrywanie kolizji
 - powiększanie się węża
