@@ -1,4 +1,4 @@
-<pre>Adrian & Piotrek
+Adrian & Piotrek
 
 square game - klon popularnej gry snake.
 
@@ -25,4 +25,4 @@ Założenia końcowe
 - kolory
 - zwiększanie poziomu trudności
 
-187 </pre>
+187
