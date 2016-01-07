@@ -27,4 +27,4 @@ Założenia końcowe:
 - kolory
 - zwiększanie poziomu trudności
 
-187
+187#420
