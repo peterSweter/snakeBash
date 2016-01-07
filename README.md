@@ -28,3 +28,6 @@ Założenia końcowe:
 - zwiększanie poziomu trudności
 
 187#420
+
+this is us
+![tapeta2.jpg](https://bitbucket.org/repo/y6pGeX/images/2381536142-tapeta2.jpg)
