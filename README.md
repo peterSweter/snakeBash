@@ -1,29 +1,28 @@
-# README #
+Adrian & Piotrek
 
-This README would normally document whatever steps are necessary to get your application up and running.
+square game - klon popularnej gry snake.
 
-### What is this repository for? ###
+Założenia minimalne:
+- obsługa wejścia
+- renderowanie planszy
+- poruszanie się węża
+- wykrywanie kolizji
+- powiększanie się węża
+- ekran końca gry
+- liczenie wyniku
+- grywalność 10/10
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Założenia końcowe
+- obsługa wejścia
+- renderowanie planszy
+- poruszanie się węża
+- wykrywanie kolizji
+- powiększanie się węża
+- ekran końca gry
+- liczenie wyniku
+- grywalność 10/10
+- najlepsze wyniki
+- kolory
+- zwiększanie poziomu trudności
 
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+187
