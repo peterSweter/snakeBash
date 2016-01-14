@@ -1,4 +1,4 @@
-Adrian & Piotrek
+Adrian & Piotrek & Olha ofc
 
 square game - klon popularnej gry snake.
 
