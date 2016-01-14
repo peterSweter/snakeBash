@@ -8,9 +8,9 @@ function render
 				0) tmpChar=' ' ;;
 			 	1) tmpChar='X' ;;
 				2) tmpChar='*' ;;
-				4) tmpChar='@' ;;
+				4) tmpChar='\e[1;31m@' ;;
 			esac
-			echo -n "$tmpChar" >>screen
+			echo -en "$tmpChar" >>screen
 
 		done
 		#Score displaying
@@ -20,5 +20,5 @@ function render
 		echo "" >>screen
 	done
 	clear
-	cat screen
+	cat -A "screen"
 }

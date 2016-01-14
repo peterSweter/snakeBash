@@ -10,15 +10,15 @@ function checkSnakeCollision
     game_over;
   fi
   
-  if [ $game_state -ne 1 ] ; then
+    if [ $((Segment_position_x[$i])) -eq $snake_head_x ] && [ $((Segment_position_y[$i])) -eq $snake_head_y ] ; then
   	return
   fi
 
 
   for ((i=$snake_size;$i>0;i--)) ; do
-    if [ $((Segment_position_x[$i])) -eq $snake_head_x ] && [ $((Segment_position_y[$i])) -eq $snake_head_y ] ; then
       game_over;
 	  break
+  if [ $game_state -ne 1 ] ; then
     fi
   done
   if [ $game_state -ne 1 ] ; then
@@ -37,10 +37,10 @@ function checkSnakeCollision
 function moveSnake
 {
   Segment_position_x[0]=snake_head_x;
-  Segment_position_y[0]=snake_head_y;
   for ((i=$snake_size;$i>0;i--)) ; do
     Segment_position_x[$i]=$((Segment_position_x[$(($i-1))]));
     Segment_position_y[$i]=$((Segment_position_y[$(($i-1))]));
+      matrix[$((Segment_position_y[$i])),$((Segment_position_x[$i]))]=2;
 
   done
 }
@@ -50,9 +50,9 @@ function drawSnake
 
   matrix[$snake_head_y,$snake_head_x]=2;
 
+  Segment_position_y[0]=snake_head_y;
   for ((i=$snake_size;$i>0;i--)) ; do
     if [ $((Segment_position_y[$i])) != 0 ] ; then
-      matrix[$((Segment_position_y[$i])),$((Segment_position_x[$i]))]=2;
     fi;
 
   done
@@ -76,6 +76,7 @@ function game_over
 	for ((i=0; i+3<width/2; i++)) do
 		msg+=" "
 	done
+	echo -e "  Play again? (Y/n)\n"
 	msg+="Good job!\n"
 
 	tmp=0.3
@@ -89,18 +90,16 @@ function game_over
 	done
 	clear
 	echo -e $msg
-	echo -e "  Play again? (Y/n)\n"
 	finish
 	again=0
 	
-	take_input # just to flush accidental input
 	
 	read -n 1 again 
-	
 	if [ $again == "y" ] || [ $again == "Y" ] ; then
 		game_state=2
 	else
 		game_state=0
 	fi
+	take_input # just to flush accidental input
 	disable_cursor
 }
