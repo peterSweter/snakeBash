@@ -1,7 +1,7 @@
 function setAppleCords
 {
-  apple_x=$[ 2 + $[ RANDOM % (width-4) ]]		#zeby z deka latwiej bylo
-  apple_y=$[ 2 + $[ RANDOM % (height-4) ]]
+  apple_x=$[ 1 + $[ RANDOM % (width-2) ]]
+  apple_y=$[ 1 + $[ RANDOM % (height-2) ]]
 }
 
 function checkSnakeCollision
