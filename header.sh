@@ -1,6 +1,6 @@
 function disable_cursor
 {
-	#stty -echo
+	stty -echo
 	tput civis
 }
 disable_cursor

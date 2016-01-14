@@ -1,5 +1,3 @@
 To do list:
 
-1. Collection something and scoring
-
-2. track path
+1. Replace sleep with timer or sth

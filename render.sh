@@ -8,7 +8,7 @@ function render
 				0) tmpChar=' ' ;;
 			 	1) tmpChar='X' ;;
 				2) tmpChar='*' ;;
-				4) tmpChar='\e[1;31m@' ;;
+				4) tmpChar='@' ;;
 			esac
 			echo -en "$tmpChar" >>screen
 
@@ -20,5 +20,5 @@ function render
 		echo "" >>screen
 	done
 	clear
-	cat -A "screen"
+	cat  "screen"
 }
