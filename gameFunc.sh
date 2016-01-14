@@ -52,7 +52,7 @@ function moveSnake
   for ((i=$snake_size;$i>0;i--)) ; do
     if [ $((Segment_position_y[$i])) != 0 ] ; then
       matrix[$((Segment_position_y[$i])),$((Segment_position_x[$i]))]=2;
-function drawSnake
+    fi;
 
   done
 
@@ -60,9 +60,14 @@ function drawSnake
 
 function game_over
 {
-    fi;
 	msg=""
 	for ((i=0; i+1<height/2; i++)) do
+		msg+="\n"
+	done
+	for ((i=0; i+3<width/2; i++)) do
+		msg+=" "
+	done
+	msg+="Game over!\n"
 	for ((i=0; i+4<width/2; i++)) do
 		msg+=" "
 	done
