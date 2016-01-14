@@ -2,7 +2,7 @@ function update
 {
 	case "$pressed_key" in
 	w) [ $move -ne 2 ] && ((move=1)) ;;
-	s) [ $move -ne 2 ] && ((move=2)) ;;
+	s) [ $move -ne 1 ] && ((move=2)) ;;
 	a) [ $move -ne 4 ] && ((move=3)) ;;
 	d) [ $move -ne 3 ] && ((move=4)) ;;
 	q) game_state=0 ;;

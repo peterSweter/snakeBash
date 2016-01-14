@@ -32,8 +32,6 @@ function init
 	setAppleCords;
 	score=0;
 	snake_size=0;
-	snake_head_x=1;
-	snake_head_y=1;
 	move=0
 
 	for ((i=0; i<height; i++)) do
