@@ -1,13 +1,14 @@
 function setAppleCords
 {
-  apple_x=$[ 2 + $[ RANDOM % (width-4) ]]		#zeby z deka latwiej bylo
+  apple_x=$[ 1 + $[ RANDOM % (width-2) ]]
+  apple_y=$[ 1 + $[ RANDOM % (height-2) ]]
 }
 
 function checkSnakeCollision
 {
   if [ $snake_head_x -eq $(($width-1)) ] || [ $snake_head_x -eq 0 ] || [ $snake_head_y -eq 0 ] || [ $snake_head_y -eq $(($height-1)) ] ; then
     game_over;
-  apple_y=$[ 2 + $[ RANDOM % (height-4) ]]
+  fi
   
   if [ $game_state -ne 1 ] ; then
   	return
@@ -16,10 +17,10 @@ function checkSnakeCollision
 
   for ((i=$snake_size;$i>0;i--)) ; do
     if [ $((Segment_position_x[$i])) -eq $snake_head_x ] && [ $((Segment_position_y[$i])) -eq $snake_head_y ] ; then
-  fi
       game_over;
 	  break
     fi
+  done
   if [ $game_state -ne 1 ] ; then
   	return
   fi
@@ -30,7 +31,6 @@ function checkSnakeCollision
     ((snake_size++));
     setAppleCords;
 
-  done
   fi
 }
 
@@ -45,6 +45,7 @@ function moveSnake
   done
 }
 
+function drawSnake
 {
 
   matrix[$snake_head_y,$snake_head_x]=2;
