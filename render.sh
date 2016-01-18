@@ -1,6 +1,7 @@
 function render
 {
-	echo >screen #faster PC MASTER RACE - ONLY 144 FPS, and no flickering
+	screen=""		#moved screen from disk to RAM - faster rendering
+	#echo >screen #faster PC MASTER RACE - ONLY 144 FPS, and no flickering
 	tmpChar=' '
 	for ((i=0; i<height; i++)) do
 		for ((j=0; j<width; j++)) do
@@ -10,15 +11,14 @@ function render
 				2) tmpChar='O' ;;
 				4) tmpChar='\e[31m@\e[0m' ;;
 			esac
-			echo -en "$tmpChar" >>screen
-
+			screen+="$tmpChar"
 		done
 		#Score displaying
 		if [ $i -eq 0 ] ; then
-			echo -n " Score: $score" >>screen
+			screen+=" Score: $score"
 		fi
-		echo "" >>screen
+		screen+="\n"
 	done
 	clear
-	cat screen 
+	echo -e $screen
 }

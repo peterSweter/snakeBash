@@ -8,8 +8,8 @@ disable_cursor
 game_state=0
 
 declare -A matrix
-height=20
-width=25
+height=25
+width=45
 
 snake_head_x=1;
 snake_head_y=1;
