@@ -7,7 +7,7 @@ function render
 			case ${matrix[$i,$j]} in
 				0) tmpChar='\e[40m \e[0m' ;;
 			 	1) tmpChar='\e[47mX\e[0m' ;;
-				2) tmpChar='*' ;;
+				2) tmpChar='O' ;;
 				4) tmpChar='\e[31m@\e[0m' ;;
 			esac
 			echo -en "$tmpChar" >>screen

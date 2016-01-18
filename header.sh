@@ -25,6 +25,8 @@ snake_size=0;
 declare -A Segment_position_x
 declare -A Segment_position_y
 
+last_update_time=0
+
 
 function init
 {
@@ -48,6 +50,8 @@ function init
 
 	snake_head_x=$(($width/2))
 	snake_head_y=$(($height/2))
+	
+	last_update_time=$(($(date +%s%N)/1000000))
 }
 function finish
 {
