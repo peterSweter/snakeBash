@@ -5,10 +5,10 @@ function render
 	for ((i=0; i<height; i++)) do
 		for ((j=0; j<width; j++)) do
 			case ${matrix[$i,$j]} in
-				0) tmpChar=' ' ;;
-			 	1) tmpChar='X' ;;
+				0) tmpChar='\e[40m \e[0m' ;;
+			 	1) tmpChar='\e[47mX\e[0m' ;;
 				2) tmpChar='*' ;;
-				4) tmpChar='@' ;;
+				4) tmpChar='\e[31m@\e[0m' ;;
 			esac
 			echo -en "$tmpChar" >>screen
 
@@ -20,5 +20,5 @@ function render
 		echo "" >>screen
 	done
 	clear
-	cat  "screen"
+	cat screen 
 }
