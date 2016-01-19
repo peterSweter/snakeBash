@@ -3,10 +3,10 @@ function render
 	screen=""		#moved screen from disk to RAM - faster rendering
 	#echo >screen #faster PC MASTER RACE - ONLY 144 FPS, and no flickering
 	tmpChar=' '
-	for ((i=0; i<height; i++)) do
-		for ((j=0; j<width; j++)) do
+	for ((i=0; i<height[$lvl]; i++)) do
+		for ((j=0; j<width[$lvl]; j++)) do
 			case ${matrix[$i,$j]} in
-				0) tmpChar='\e[40m \e[0m' ;;
+				0) tmpChar='\e[40m \e[0m' ;; #nothing
 			 	1) tmpChar='\e[47mX\e[0m' ;;
 				2) tmpChar='O' ;;
 				4) tmpChar='\e[31m@\e[0m' ;;
@@ -19,6 +19,6 @@ function render
 		fi
 		screen+="\n"
 	done
-	clear
+	clear		# double buffering lol
 	echo -e $screen
 }

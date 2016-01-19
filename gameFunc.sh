@@ -1,12 +1,12 @@
 function setAppleCords
 {
-  apple_x=$[ 2 + $[ RANDOM % (width-4) ]]
-  apple_y=$[ 2 + $[ RANDOM % (height-4) ]]
+  apple_x=$[ 2 + $[ RANDOM % (width[$lvl]-4) ]]
+  apple_y=$[ 2 + $[ RANDOM % (height[$lvl]-4) ]]
 }
 
 function checkSnakeCollision
 {
-  if [ $snake_head_x -eq $(($width-1)) ] || [ $snake_head_x -eq 0 ] || [ $snake_head_y -eq 0 ] || [ $snake_head_y -eq $(($height-1)) ] ; then
+  if [ $((${matrix[$snake_head_y,$snake_head_x]})) -eq 1 ] ; then
     game_over;
   fi
   
@@ -29,6 +29,8 @@ function checkSnakeCollision
   if [ $apple_x -eq $snake_head_x ] && [ $apple_y -eq $snake_head_y ] ; then
     ((score++));
     ((snake_size++));
+	Segment_position_x[$snake_size]=-1 #bugfix of artefacts
+	Segment_position_y[$snake_size]=-1 
     setAppleCords;
 
   fi
@@ -50,13 +52,11 @@ function drawSnake
 
   matrix[$snake_head_y,$snake_head_x]=2;
 
-  for ((i=$snake_size;$i>0;i--)) ; do
-    if [ $((Segment_position_y[$i])) != 0 ] ; then
-      matrix[$((Segment_position_y[$i])),$((Segment_position_x[$i]))]=2;
-    fi;
-
-  done
-
+  if((snake_size>0)) ; then
+	  for ((i=$snake_size;$i>0;i--)) ; do
+	      matrix[$((Segment_position_y[$i])),$((Segment_position_x[$i]))]=2;
+	  done
+  fi
 }
 
 function game_over

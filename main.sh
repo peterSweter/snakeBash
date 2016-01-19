@@ -1,6 +1,7 @@
 #!/bin/bash
 source ./gameFunc.sh
 source ./header.sh
+source ./levels.sh
 source ./input.sh
 source ./update.sh
 source ./render.sh

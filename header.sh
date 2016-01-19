@@ -8,11 +8,9 @@ disable_cursor
 game_state=0
 
 declare -A matrix
-height=25
-width=45
 
-snake_head_x=1;
-snake_head_y=1;
+snake_head_x=2;
+snake_head_y=2;
 
 apple_x=1;
 apple_y=1;
@@ -27,31 +25,18 @@ declare -A Segment_position_y
 
 last_update_time=0
 
+# levels variables
+declare -A height
+declare -A width
+declare -A special
+lvl=0
+#end level variables
 
 function init
 {
 	game_state=1
-	setAppleCords;
 	score=0;
-	snake_size=0;
-	move=0
-
-	for ((i=0; i<height; i++)) do
-		for ((j=0; j<width; j++)) do
-			if ((i==0 || j==0 || i+1==height|| j+1==width)); then
-				matrix[$i,$j]=1
-			else
-				matrix[$i,$j]=0
-			fi
-		done
-	done
-
-	matrix[$apple_y,$apple_x]=4;
-
-	snake_head_x=$(($width/2))
-	snake_head_y=$(($height/2))
-	
-	last_update_time=$(($(date +%s%N)/1000000))
+	init_level
 }
 function finish
 {

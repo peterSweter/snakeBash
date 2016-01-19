@@ -17,17 +17,39 @@ function update
 	3) ((snake_head_x--));;
 	4) ((snake_head_x++));;
 	esac
+	
+	((snake_head_y+=${height[$lvl]}))
+	((snake_head_y%=${height[$lvl]}))
+	((snake_head_x+=${width[$lvl]}))
+	((snake_head_x%=${width[$lvl]}))
 
 	checkSnakeCollision;
 	if [ $game_state -ne 1 ] ; then
 		return
 	fi
 	
+	if [ $snake_size -eq $((${max_snake[$lvl]})) ] ; then
+		((lvl++))
+		((lvl%=2))
+		init_level
+	fi
+	
 
 
-	for ((i=1; i+1<height; i++)) do
-		for ((j=1; j+1<width; j++)) do
-			matrix[$i,$j]=0
+#	for ((i=1; i+1<height[$lvl]; i++)) do
+#		for ((j=1; j+1<width[$lvl]; j++)) do
+#				matrix[$i,$j]=0
+#		done
+#	done
+	for ((i=0; i<height[$lvl]; i++)) do
+		for ((j=0; j<width[$lvl]; j++)) do
+			if (( (i==0 || i+1==height[$lvl]) && (j<gapX_b[$lvl] || j>gapX_e[$lvl]  ))); then
+				matrix[$i,$j]=1
+			elif (( (j==0 || j+1==width[$lvl]) && (i<gapY_b[$lvl] || i>gapY_e[$lvl] ))); then
+				matrix[$i,$j]=1
+			else 
+				matrix[$i,$j]=0
+			fi
 		done
 	done
 
