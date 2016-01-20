@@ -28,6 +28,9 @@ function render
 		if [ $i -eq 2 ] ; then
 			screen+=" $(((${max_snake[$lvl]}-$snake_size)/${snake_grow[$lvl]}+1))"
 		fi
+		if [ $i -eq 3 ] ; then
+			screen+=" Global Highscore: $global_score"
+		fi
 		screen+="\n"
 	done
 	clear		# double buffering lol

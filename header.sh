@@ -6,6 +6,8 @@ function disable_cursor
 disable_cursor
 
 game_state=0
+game_over_init=0;
+new_global_hig=0;
 
 declare -A matrix
 
@@ -14,6 +16,7 @@ snake_head_y=2;
 
 apple_x=1;
 apple_y=1;
+global_score;
 
 pressed_key=o
 
@@ -45,7 +48,7 @@ function init
 	lvl=-1
 	init_level
 	cvlc ./music.mp3 >error.log &
-	
+	global_score=$(curl -s http://mammarosa.com.pl/score.txt);
 }
 function finish
 {
