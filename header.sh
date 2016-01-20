@@ -44,11 +44,14 @@ function init
 	snake_size=0
 	lvl=-1
 	init_level
+	cvlc ./music.mp3 >error.log &
+	
 }
 function finish
 {
 	stty echo
 	tput cnorm
 	tput sgr0
+	killall vlc
 }
 trap finish EXIT
