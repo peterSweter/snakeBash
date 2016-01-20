@@ -28,9 +28,11 @@ function checkSnakeCollision
 
   if [ $apple_x -eq $snake_head_x ] && [ $apple_y -eq $snake_head_y ] ; then
     ((score++));
-    ((snake_size++));
-	Segment_position_x[$snake_size]=-1 #bugfix of artefacts
-	Segment_position_y[$snake_size]=-1 
+	for ((i=0; i<=${snake_grow[$lvl]}; i++)) ; do
+		Segment_position_x[$(($i+$snake_size))]=-1
+		Segment_position_y[$(($i+$snake_size))]=-1
+	done
+    ((snake_size+=${snake_grow[$lvl]}));
     setAppleCords;
 
   fi
@@ -61,6 +63,7 @@ function drawSnake
 
 function game_over
 {
+	hold
 	msg=""
 	for ((i=0; i+1<height/2; i++)) do
 		msg+="\n"
@@ -98,6 +101,7 @@ function game_over
 	read -n 1 again 
 	
 	if [ $again == "y" ] || [ $again == "Y" ] ; then
+		init_level
 		game_state=2
 	else
 		game_state=0

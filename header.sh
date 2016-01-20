@@ -28,14 +28,21 @@ last_update_time=0
 # levels variables
 declare -A height
 declare -A width
-declare -A special
-lvl=0
+declare -A gapX_b
+declare -A gapX_e
+declare -A gapY_b
+declare -A gapY_e
+declare -A max_snake
+declare -A frame_time
+lvl=-1
 #end level variables
 
 function init
 {
 	game_state=1
-	score=0;
+	score=0
+	snake_size=0
+	lvl=-1
 	init_level
 }
 function finish

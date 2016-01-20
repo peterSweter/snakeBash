@@ -7,6 +7,7 @@ function update
 	d) [ $move -ne 3 ] && ((move=4)) ;;
 	q) game_state=0 ;;
 	e) ((move=0)) ;;
+	n) init_level ;;#cheats lol
 	esac
 
 	moveSnake;
@@ -22,15 +23,16 @@ function update
 	((snake_head_y%=${height[$lvl]}))
 	((snake_head_x+=${width[$lvl]}))
 	((snake_head_x%=${width[$lvl]}))
-
-	checkSnakeCollision;
+	
+	if [ $move -ne 0 ] ; then
+		checkSnakeCollision;
+	fi
+	
 	if [ $game_state -ne 1 ] ; then
 		return
 	fi
 	
-	if [ $snake_size -eq $((${max_snake[$lvl]})) ] ; then
-		((lvl++))
-		((lvl%=2))
+	if [ $snake_size -gt $((${max_snake[$lvl]})) ] ; then
 		init_level
 	fi
 	

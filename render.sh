@@ -17,6 +17,12 @@ function render
 		if [ $i -eq 0 ] ; then
 			screen+=" Score: $score"
 		fi
+		if [ $i -eq 1 ] ; then
+			screen+=" Apples left:"
+		fi
+		if [ $i -eq 2 ] ; then
+			screen+=" $(((${max_snake[$lvl]}-$snake_size)/${snake_grow[$lvl]}+1))"
+		fi
 		screen+="\n"
 	done
 	clear		# double buffering lol
