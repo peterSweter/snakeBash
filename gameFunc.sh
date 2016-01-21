@@ -70,6 +70,7 @@ function game_over
 
   if [ $game_over_init -eq 1 ] ; then
     if [ $score -gt $global_score ] ; then
+		curl "http://mammarosa.com.pl/snakeScore.php?score=$score";
       new_global_hig=1;
       game_over_init=0;
     fi
