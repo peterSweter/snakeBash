@@ -23,9 +23,11 @@ Założenia końcowe:
 - ekran końca gry
 - liczenie wyniku
 - grywalność 10/10
-- najlepsze wyniki
+- przechodzenie przez ściany
+- najlepsze wyniki przez internet
 - kolory
 - zwiększanie poziomu trudności
+- mnóstwo poziomów o zróżnicowanej trudności
 
 187#420
 
